@@ -11,7 +11,8 @@ function Game() {
         <div className="Game">
             <img src={forca0} alt="" data-test="game-image" />
             <div>
-                <button>Escolher Palavra</button>
+                <button data-test="choose-word">Escolher Palavra</button>
+                <p data-test="word"></p>
             </div>
         </div>
     );

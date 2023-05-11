@@ -17,6 +17,11 @@ body {
   width: 400px;
 }
 
+.Game div {
+  display: flex;
+  flex-direction: column;
+}
+
 .Game button {
   margin-top: 30px;
   width: 200px;
@@ -28,7 +33,17 @@ body {
   line-height: 23px;
   text-align: center;
   color: #FFFFFF;
+  margin-left: auto;
   }
+
+.Game p {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  margin-top: 290px;
+  font-size: 50px;
+  line-height: 68px;
+  color: #000000;
+}
 
 .Keyboard {
   margin: auto;

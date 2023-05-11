@@ -1,5 +1,6 @@
 import Game from "./Game";
 import Keyboard from "./Keyboard";
+// import palavras from "../palavras";
 
 function App() {
     return (

@@ -9,7 +9,10 @@ import forca0 from "../assets/forca0.png";
 function Game() {
     return (
         <div className="Game">
-            <img src={forca0} data-test="game-image" />
+            <img src={forca0} alt="" data-test="game-image" />
+            <div>
+                <button>Escolher Palavra</button>
+            </div>
         </div>
     );
 }

@@ -6,8 +6,9 @@ body {
 
 .Game {
   margin: auto;
-  width: 676px;
+  width: 934px;
   display: flex;
+  justify-content: space-between;
   margin-bottom: 60px;
   margin-top: 60px;
 }
@@ -16,9 +17,23 @@ body {
   width: 400px;
 }
 
+.Game button {
+  margin-top: 30px;
+  width: 200px;
+  height: 60px;
+  background: #27AE60;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  color: #FFFFFF;
+  }
+
 .Keyboard {
   margin: auto;
   display: flex;
+  justify-content: space-between;
   width: 676px;
   flex-wrap: wrap;
 }
@@ -31,6 +46,7 @@ body {
   border: 1px solid #7AA7C7;
   border-radius: 3px;
   font-size: 16px;
+  font-weight: 700;
   line-height: 19px;
   text-align: center;
   text-transform: uppercase;

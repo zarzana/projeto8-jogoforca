@@ -11,7 +11,7 @@ function Keyboard(props) {
     const mistakeCount = props.mistakeCount;
     const setMistakeCount = props.mistakeCountCallback;
 
-    const setWordSyle = props.wordColorCallback;
+    const setWordSyle = props.wordStyleCallback;
 
     // bonus
     const setGuessDisabledState = props.guessDisabledStateCallback;

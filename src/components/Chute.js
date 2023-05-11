@@ -36,8 +36,8 @@ function Guess(props) {
     return (
         <div className="Guess">
             <p>Já sei a palavra!</p>
-            <input type="text" disabled={guessDisabledState} ref={inputRef}></input>
-            <button disabled={guessDisabledState} onClick={guessClick}>Chutar</button>
+            <input type="text" disabled={guessDisabledState} ref={inputRef} data-test="guess-input"></input>
+            <button disabled={guessDisabledState} onClick={guessClick} data-test="guess-button">Chutar</button>
         </div>
     );
 

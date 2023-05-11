@@ -12,7 +12,7 @@ function Keyboard() {
 function Letter(props) {
     return (
         <div className="Letter">
-            <button disabled>{props.letter}</button>
+            <button disabled data-test="letter">{props.letter}</button>
         </div>
     )
 }

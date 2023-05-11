@@ -18,12 +18,16 @@ function Game(props) {
     const setChosenWord = props.chosenWordCallback;
 
     const mistakeCount = props.mistakeCount;
+    const setMistakeCount = props.mistakeCountCallback;
+
+    const wordStyle = props.wordStyle;
 
     function buttonClick() {
         setKeyboardDisabledState(Array(26).fill(false));
         const word = words[Math.floor(Math.random() * words.length)];
         setChosenWord(word);
         setDisplayWordArray(Array(word.length).fill('_'));
+        setMistakeCount(0);
     }
 
     return (
@@ -31,7 +35,7 @@ function Game(props) {
             <img src={hangmanImages[mistakeCount]} alt="" data-test="game-image" />
             <div>
                 <button onClick={buttonClick} data-test="choose-word">Escolher Palavra</button>
-                <p data-test="word">{displayWordArray.join(' ')}</p>
+                <p style={wordStyle} data-test="word">{displayWordArray.join(' ')}</p>
             </div>
         </div>
     );

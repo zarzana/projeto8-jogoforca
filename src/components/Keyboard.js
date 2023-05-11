@@ -11,6 +11,8 @@ function Keyboard(props) {
     const mistakeCount = props.mistakeCount;
     const setMistakeCount = props.mistakeCountCallback;
 
+    const setWordSyle = props.wordColorCallback;
+
     function letterClick(event) {
 
         // disabling button after click
@@ -24,9 +26,21 @@ function Keyboard(props) {
             let updatedDisplayWordArray = [...displayWordArray];
             let i = -1; while ((i = chosenWord.indexOf(letter, i + 1)) !== -1) { updatedDisplayWordArray[i] = letter }
             setDisplayWordArray(updatedDisplayWordArray);
+            // win condition
+            if (updatedDisplayWordArray.indexOf('_') === -1) {
+                setKeyboardDisabledState(Array(26).fill(true));
+                setWordSyle({ color: "green" });
+            }
         }
         else {
-            setMistakeCount(mistakeCount + 1);
+            // lose condition
+            const updatedmistakeCount = mistakeCount + 1;
+            if (updatedmistakeCount === 6) {
+                setKeyboardDisabledState(Array(26).fill(true));
+                setDisplayWordArray(Array(chosenWord));
+                setWordSyle({ color: "red" });
+            }
+            setMistakeCount(updatedmistakeCount);
         }
 
     }

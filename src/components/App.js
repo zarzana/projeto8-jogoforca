@@ -11,6 +11,7 @@ function App() {
     const [displayWordArray, setDisplayWordArray] = useState([]);
     const [chosenWord, setChosenWord] = useState(undefined);
     const [mistakeCount, setMistakeCount] = useState(0);
+    const [wordStyle, setWordSyle] = useState({ color: "black" })
 
     return (
         <div className="App">
@@ -18,11 +19,13 @@ function App() {
                 keyboardCallback={setKeyboardDisabledState}
                 displayWordArray={displayWordArray} displayWordArrayCallback={setDisplayWordArray}
                 chosenWordCallback={setChosenWord}
-                mistakeCount={mistakeCount} />
+                mistakeCount={mistakeCount} mistakeCountCallback={setMistakeCount}
+                wordStyle={wordStyle} />
             <Keyboard keyboardState={keyboardDisabledState} keyboardCallback={setKeyboardDisabledState}
                 displayWordArray={displayWordArray} displayWordArrayCallback={setDisplayWordArray}
                 chosenWord={chosenWord}
-                mistakeCount={mistakeCount} mistakeCountCallback={setMistakeCount} />
+                mistakeCount={mistakeCount} mistakeCountCallback={setMistakeCount}
+                wordColorCallback={setWordSyle} />
         </div>
     );
 

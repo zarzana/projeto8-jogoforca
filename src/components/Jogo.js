@@ -21,13 +21,20 @@ function Game(props) {
     const setMistakeCount = props.mistakeCountCallback;
 
     const wordStyle = props.wordStyle;
+    const setWordSyle = props.wordStyleCallback;
+
+    // bonus
+    const setGuessDisabledState = props.guessDisabledStateCallback;
 
     function buttonClick() {
         setKeyboardDisabledState(Array(26).fill(false));
         const word = words[Math.floor(Math.random() * words.length)];
         setChosenWord(word);
         setDisplayWordArray(Array(word.length).fill('_'));
+        // bonus
         setMistakeCount(0);
+        setWordSyle({ color: "black" })
+        setGuessDisabledState(false);
     }
 
     return (

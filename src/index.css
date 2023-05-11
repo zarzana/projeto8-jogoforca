@@ -14,7 +14,7 @@ body {
 }
 
 .Game img {
-  width: 400px;
+  width: 300px;
 }
 
 .Game div {
@@ -39,7 +39,7 @@ body {
 .Game p {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
-  margin-top: 290px;
+  margin-top: 190px;
   font-size: 50px;
   line-height: 68px;
   color: #000000;
@@ -69,16 +69,60 @@ body {
   margin: 6px;
 }
 
-.Letter button:hover {
+.Guess {
+  padding-top: 40px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.Guess p {
+  margin-top: 7px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+}
+
+.Guess input {
+  margin-left: 12px;
+  box-sizing: border-box;
+  width: 353px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+}
+
+.Guess button {
+  margin-left: 15px;
+  box-sizing: border-box;
+  width: 100px;
+  height: 40px;
+  background: #E1ECF4;
+  border: 1px solid #7AA7C7;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3C76A1;
+}
+
+button:hover {
   background: #edf4f9;
 }
 
-.Letter button:active {
+button:active {
   background: #d4dfe7;
 }
 
-.Letter button:disabled,
-.Letter button[disabled] {
+button:disabled, button[disabled] {
   background: #9FAAB5;
   color: #798A9F;
+}
+
+input:disabled, input[disabled] {
+  background: #9FAAB5;
 }

@@ -13,6 +13,9 @@ function Keyboard(props) {
 
     const setWordSyle = props.wordColorCallback;
 
+    // bonus
+    const setGuessDisabledState = props.guessDisabledStateCallback;
+
     function letterClick(event) {
 
         // disabling button after click
@@ -30,6 +33,8 @@ function Keyboard(props) {
             if (updatedDisplayWordArray.indexOf('_') === -1) {
                 setKeyboardDisabledState(Array(26).fill(true));
                 setWordSyle({ color: "green" });
+                // bonus
+                setGuessDisabledState(true);
             }
         }
         else {
@@ -39,6 +44,8 @@ function Keyboard(props) {
                 setKeyboardDisabledState(Array(26).fill(true));
                 setDisplayWordArray(Array(chosenWord));
                 setWordSyle({ color: "red" });
+                // bonus
+                setGuessDisabledState(true);
             }
             setMistakeCount(updatedmistakeCount);
         }

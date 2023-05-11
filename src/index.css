@@ -71,7 +71,10 @@ body {
 
 .Letter button:hover {
   background: #edf4f9;
-  color: #39739D;
+}
+
+.Letter button:active {
+  background: #d4dfe7;
 }
 
 .Letter button:disabled,

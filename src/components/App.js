@@ -21,27 +21,27 @@ function App() {
         <div className="App">
 
             <Game words={words}
-                keyboardCallback={setKeyboardDisabledState}
-                displayWordArray={displayWordArray} displayWordArrayCallback={setDisplayWordArray}
-                chosenWordCallback={setChosenWord}
-                mistakeCount={mistakeCount} mistakeCountCallback={setMistakeCount}
-                wordStyle={wordStyle} wordStyleCallback={setWordSyle}
-                guessDisabledStateCallback={setGuessDisabledState} />
+                setKeyboardDisabledState={setKeyboardDisabledState}
+                displayWordArray={displayWordArray} setDisplayWordArray={setDisplayWordArray}
+                setChosenWord={setChosenWord}
+                mistakeCount={mistakeCount} setMistakeCount={setMistakeCount}
+                wordStyle={wordStyle} setWordSyle={setWordSyle}
+                setGuessDisabledState={setGuessDisabledState} />
 
-            <Keyboard keyboardState={keyboardDisabledState} keyboardCallback={setKeyboardDisabledState}
-                displayWordArray={displayWordArray} displayWordArrayCallback={setDisplayWordArray}
+            <Keyboard keyboardState={keyboardDisabledState} setKeyboardDisabledState={setKeyboardDisabledState}
+                displayWordArray={displayWordArray} setDisplayWordArray={setDisplayWordArray}
                 chosenWord={chosenWord}
-                mistakeCount={mistakeCount} mistakeCountCallback={setMistakeCount}
-                wordStyleCallback={setWordSyle}
-                guessDisabledStateCallback={setGuessDisabledState} />
+                mistakeCount={mistakeCount} setMistakeCount={setMistakeCount}
+                setWordSyle={setWordSyle}
+                setGuessDisabledState={setGuessDisabledState} />
 
             {/* bonus */}
-            <Guess keyboardCallback={setKeyboardDisabledState}
-                displayWordArrayCallback={setDisplayWordArray}
+            <Guess setKeyboardDisabledState={setKeyboardDisabledState}
+                setDisplayWordArray={setDisplayWordArray}
                 chosenWord={chosenWord}
-                mistakeCountCallback={setMistakeCount}
-                wordStyleCallback={setWordSyle}
-                guessDisabledState={guessDisabledState} guessDisabledStateCallback={setGuessDisabledState} />
+                setMistakeCount={setMistakeCount}
+                setWordSyle={setWordSyle}
+                guessDisabledState={guessDisabledState} setGuessDisabledState={setGuessDisabledState} />
 
         </div>
     );

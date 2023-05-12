@@ -2,16 +2,16 @@ import { useRef } from "react";
 
 function Guess(props) {
 
-    const setKeyboardDisabledState = props.keyboardCallback;
+    const setKeyboardDisabledState = props.setKeyboardDisabledState;
 
-    const setDisplayWordArray = props.displayWordArrayCallback;
+    const setDisplayWordArray = props.setDisplayWordArray;
     const chosenWord = props.chosenWord;
 
-    const setMistakeCount = props.mistakeCountCallback;
-    const setWordSyle = props.wordStyleCallback;
+    const setMistakeCount = props.setMistakeCount;
+    const setWordSyle = props.setWordSyle;
 
     const guessDisabledState = props.guessDisabledState;
-    const setGuessDisabledState = props.guessDisabledStateCallback;
+    const setGuessDisabledState = props.setGuessDisabledState;
     
     const inputRef = useRef(null);
 

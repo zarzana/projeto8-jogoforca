@@ -10,21 +10,21 @@ function Game(props) {
 
     const hangmanImages = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
 
-    const setKeyboardDisabledState = props.keyboardCallback;
+    const setKeyboardDisabledState = props.setKeyboardDisabledState;
     const words = props.words;
 
     const displayWordArray = props.displayWordArray;
-    const setDisplayWordArray = props.displayWordArrayCallback;
-    const setChosenWord = props.chosenWordCallback;
+    const setDisplayWordArray = props.setDisplayWordArray;
+    const setChosenWord = props.setChosenWord;
 
     const mistakeCount = props.mistakeCount;
-    const setMistakeCount = props.mistakeCountCallback;
+    const setMistakeCount = props.setMistakeCount;
 
     const wordStyle = props.wordStyle;
-    const setWordSyle = props.wordStyleCallback;
+    const setWordSyle = props.setWordSyle;
 
     // bonus
-    const setGuessDisabledState = props.guessDisabledStateCallback;
+    const setGuessDisabledState = props.setGuessDisabledState;
 
     function buttonClick() {
         setKeyboardDisabledState(Array(26).fill(false));

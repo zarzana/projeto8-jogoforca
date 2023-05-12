@@ -2,19 +2,19 @@ function Keyboard(props) {
 
     const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
     const keyboardDisabledState = props.keyboardState;
-    const setKeyboardDisabledState = props.keyboardCallback;
+    const setKeyboardDisabledState = props.setKeyboardDisabledState;
 
     const displayWordArray = props.displayWordArray;
-    const setDisplayWordArray = props.displayWordArrayCallback;
+    const setDisplayWordArray = props.setDisplayWordArray;
     const chosenWord = props.chosenWord;
 
     const mistakeCount = props.mistakeCount;
-    const setMistakeCount = props.mistakeCountCallback;
+    const setMistakeCount = props.setMistakeCount;
 
-    const setWordSyle = props.wordStyleCallback;
+    const setWordSyle = props.setWordSyle;
 
     // bonus
-    const setGuessDisabledState = props.guessDisabledStateCallback;
+    const setGuessDisabledState = props.setGuessDisabledState;
 
     // bonus
     const letterEquivalence = {

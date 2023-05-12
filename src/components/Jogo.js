@@ -35,6 +35,7 @@ function Game(props) {
         setMistakeCount(0);
         setWordSyle({ color: "black" })
         setGuessDisabledState(false);
+        console.log(word);
     }
 
     return (

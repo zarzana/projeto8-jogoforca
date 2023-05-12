@@ -16,38 +16,87 @@ function Keyboard(props) {
     // bonus
     const setGuessDisabledState = props.guessDisabledStateCallback;
 
+    // bonus
+    const letterEquivalence = {
+        'a': ['a', 'à', 'á', 'â', 'ã'],
+        'e': ['e', 'é', 'ê'],
+        'i': ['i', 'í'],
+        'o': ['o', 'ó', 'ô', 'õ'],
+        'u': ['u', 'ú'],
+        'c': ['c', 'ç']
+    };
+
     function letterClick(event) {
 
+        // game logic
+        function gameLogic(letter) {
+
+            if (chosenWord.indexOf(letter) !== -1) {
+                let updatedDisplayWordArray = [...displayWordArray];
+                let i = -1; while ((i = chosenWord.indexOf(letter, i + 1)) !== -1) { updatedDisplayWordArray[i] = letter }
+                setDisplayWordArray(updatedDisplayWordArray);
+                // win condition
+                if (updatedDisplayWordArray.indexOf('_') === -1) {
+                    setKeyboardDisabledState(Array(26).fill(true));
+                    setWordSyle({ color: "green" });
+                    // bonus
+                    setGuessDisabledState(true);
+                }
+            }
+            else {
+                // lose condition
+                const updatedmistakeCount = mistakeCount + 1;
+                if (updatedmistakeCount === 6) {
+                    setKeyboardDisabledState(Array(26).fill(true));
+                    setDisplayWordArray(Array(chosenWord));
+                    setWordSyle({ color: "red" });
+                    // bonus
+                    setGuessDisabledState(true);
+                }
+                setMistakeCount(updatedmistakeCount);
+            }
+
+        }
+
         // disabling button after click
-        const letter = event.target.innerHTML;
+        const chosenLetter = event.target.innerHTML;
         let updatedKeyboardDisabledState = [...keyboardDisabledState]
-        updatedKeyboardDisabledState[alphabet.indexOf(letter)] = true;
+        updatedKeyboardDisabledState[alphabet.indexOf(chosenLetter)] = true;
         setKeyboardDisabledState(updatedKeyboardDisabledState);
 
-        // game logic
-        if (chosenWord.indexOf(letter) !== -1) {
-            let updatedDisplayWordArray = [...displayWordArray];
-            let i = -1; while ((i = chosenWord.indexOf(letter, i + 1)) !== -1) { updatedDisplayWordArray[i] = letter }
-            setDisplayWordArray(updatedDisplayWordArray);
-            // win condition
-            if (updatedDisplayWordArray.indexOf('_') === -1) {
-                setKeyboardDisabledState(Array(26).fill(true));
-                setWordSyle({ color: "green" });
-                // bonus
-                setGuessDisabledState(true);
+        if (Object.keys(letterEquivalence).includes(chosenLetter)) {
+            let letterFound = false;
+            letterEquivalence[chosenLetter].forEach(letter => {
+                const letterPosition = chosenWord.indexOf(letter);
+                if (letterPosition !== -1) {
+                    letterFound = true;
+                    let updatedDisplayWordArray = [...displayWordArray];
+                    let i = -1; while ((i = chosenWord.indexOf(letter, i + 1)) !== -1) { updatedDisplayWordArray[i] = letter }
+                    setDisplayWordArray(updatedDisplayWordArray);
+                    // win condition
+                    if (updatedDisplayWordArray.indexOf('_') === -1) {
+                        setKeyboardDisabledState(Array(26).fill(true));
+                        setWordSyle({ color: "green" });
+                        // bonus
+                        setGuessDisabledState(true);
+                    }
+                }
+            });
+            if (!letterFound) {
+                // lose condition
+                const updatedmistakeCount = mistakeCount + 1;
+                if (updatedmistakeCount === 6) {
+                    setKeyboardDisabledState(Array(26).fill(true));
+                    setDisplayWordArray(Array(chosenWord));
+                    setWordSyle({ color: "red" });
+                    // bonus
+                    setGuessDisabledState(true);
+                }
+                setMistakeCount(updatedmistakeCount);
             }
         }
         else {
-            // lose condition
-            const updatedmistakeCount = mistakeCount + 1;
-            if (updatedmistakeCount === 6) {
-                setKeyboardDisabledState(Array(26).fill(true));
-                setDisplayWordArray(Array(chosenWord));
-                setWordSyle({ color: "red" });
-                // bonus
-                setGuessDisabledState(true);
-            }
-            setMistakeCount(updatedmistakeCount);
+            gameLogic(chosenLetter);
         }
 
     }

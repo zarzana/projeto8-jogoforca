@@ -66,22 +66,22 @@ function Keyboard(props) {
 
         if (Object.keys(letterEquivalence).includes(chosenLetter)) {
             let letterFound = false;
+            let updatedDisplayWordArray = [...displayWordArray];
             letterEquivalence[chosenLetter].forEach(letter => {
                 const letterPosition = chosenWord.indexOf(letter);
                 if (letterPosition !== -1) {
                     letterFound = true;
-                    let updatedDisplayWordArray = [...displayWordArray];
                     let i = -1; while ((i = chosenWord.indexOf(letter, i + 1)) !== -1) { updatedDisplayWordArray[i] = letter }
-                    setDisplayWordArray(updatedDisplayWordArray);
-                    // win condition
-                    if (updatedDisplayWordArray.indexOf('_') === -1) {
-                        setKeyboardDisabledState(Array(26).fill(true));
-                        setWordSyle({ color: "green" });
-                        // bonus
-                        setGuessDisabledState(true);
-                    }
                 }
             });
+            setDisplayWordArray(updatedDisplayWordArray);
+            // win condition
+            if (updatedDisplayWordArray.indexOf('_') === -1) {
+                setKeyboardDisabledState(Array(26).fill(true));
+                setWordSyle({ color: "green" });
+                // bonus
+                setGuessDisabledState(true);
+            }
             if (!letterFound) {
                 // lose condition
                 const updatedmistakeCount = mistakeCount + 1;

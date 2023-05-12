@@ -24,7 +24,7 @@ function Game(props) {
     const setWordSyle = props.setWordSyle;
 
     // bonus
-    const setGuessDisabledState = props.guessDisabledStateCallback;
+    const setGuessDisabledState = props.setGuessDisabledState;
 
     function buttonClick() {
         setKeyboardDisabledState(Array(26).fill(false));
